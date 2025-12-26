@@ -11,7 +11,7 @@
 
 @font-face{
     font-family: "Cairo",sans-serif;
-    src: url(webfonts/Cairo-VariableFont_slnt,wght.ttf);
+    src: url(../webfonts/Cairo-VariableFont_slnt,wght.ttf);
 }
 
 html{
@@ -691,4 +691,5 @@ button{
 
 
 }
+
 
