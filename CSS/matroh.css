@@ -256,7 +256,7 @@ button{
 /* landing-page start */
 .landing-page{
     min-height: 100vh;
-    background-image: url(images/oasissiwah.jpeg);
+    background-image: url(../images/oasissiwah.jpeg);
     background-size: cover;
     position: relative;
 }
@@ -691,5 +691,6 @@ button{
 
 
 }
+
 
 
