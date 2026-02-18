@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="CSS/all.min.css">
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/matroh.css">
+    <link rel="stylesheet" href="CSS/Responsive.css">
 </head>
 <body>
 <!-- setting-box start -->
@@ -48,7 +49,7 @@
       </div>
     </div>
 
-    <div class="option-box">
+    <div class="option-box balls">
       <h4>اظهار الإختصارات</h4>
       <div class="bullets-option">
         <span class="yes active" data-display="show">نعم</span>
@@ -118,12 +119,9 @@
 <!-- Matrouh info start -->
 <div class="matrouh-info">
   <div class="my-container">
-    <div class="altbox">
-      <p>تنبيه:الموقع لا يعمل علي الهاتف حاليا!</p>
-    </div>
     <div class="text">
       <h1 class="h1">نبذة عن محافظة مطروح</h1>
-    </div>
+
       <p class="p-1">مطروح من أجمل محافظات مصر، تأسست منذ عهد الإسكندر الأكبر بسبب جمال موقعها وشواطئها.<br>
         مرّت عليها حضارات مختلفة مثل البطالمة 
         والرومان، وشهدت قصصاً تاريخية كغرام كليوباترا
@@ -134,9 +132,15 @@
         ما يمنحها
         طبيعة متنوعة تجمع بين الماضي
         العريق والجمال المعاصر.
+      
       </p>
+    </div>
+    <div>
+
       <p class="p-3">أقرأ أيضا هنا: </p>
       <a href="./Pages/TimeLine.html" class="button" target="_self" >***مخطط زمني لتاريخ المحافظة***</a>
+    </div>
+    
       <p class="p-2">
         و الأن سنتعرف علي أشهر الأماكن التي تشتهر بها محافظة مطروح:
       </p>
@@ -157,11 +161,33 @@
       <img src="images/Romel_cave_museum.jpg" alt="متحف كهف رومل">
       <img src="images/oasissiwah.jpeg" alt="منتجع بحيرة اليمام">
       <img src="images/Lagoon-beach-Marsa-Matruh.jpg" alt="شاطئ اللاغون">
-      <img src="images/ageeba-Beach.jpg" alt="شاطئ عجيبة">
+      <img src="images/Ageeba-Beach.jpg" alt="شاطئ عجيبة">
     </div>
   </div>
 </div>
 <!-- famous places end -->
+
+<!-- report start -->
+<div class="report">
+  <div class="overlay"></div>
+  <div class="my-container">
+    <h2>قسم الإبلاغات و الإقتراحات</h2>
+      <form action="">
+        <div class="left">
+          <input type="text" placeholder="اسمك" name="username">
+          <input type="text" placeholder="رقم الهاتف" name="phone">
+          <input type="email" placeholder="الإميل" name="email">
+          <input type="text" placeholder="الموضوع" name="subject">
+        </div>
+
+        <div class="right">
+          <textarea name="message" placeholder="اكتب هنا اقتراحك أو إبلاغك"></textarea>
+          <input type="submit" value="إرسال">
+        </div>
+      </form>
+  </div>
+</div>
+<!-- report end -->
 
 <!-- About us start -->
 <div class="about-us" >
@@ -183,13 +209,6 @@
   <script src="JS/bootstrap.min.js"></script>
   <script src="JS/leaflet.js"></script> 
   <Script src="JS/main.js"></Script>
+  <script src="JS/jquery-1.12.4.min.js"></script>
 </body>
-
 </html>
-
-
-
-
-
-
-

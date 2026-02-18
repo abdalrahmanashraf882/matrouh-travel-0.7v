@@ -1,0 +1,40 @@
+
+@media (max-width: 450px) {
+    .my-container {
+        max-width: 395px;
+    }
+}
+
+@media (min-width: 576px) {
+    .my-container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .my-container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .my-container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .my-container {
+        max-width: 1140px;
+    }
+}
+
+@media (max-width: 450px) {
+    .timeline .timeline-content .content h3{
+        font-size: 19px;
+    }
+
+    .timeline .timeline-content .content p{
+        font-size: 14px;
+    }
+}

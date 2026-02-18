@@ -62,7 +62,7 @@ if (backgroundLocalItem !== null) {
 function randomizeImgs() {
     if (backgroundOption === true) {
         let landingPage = document.querySelector(".landing-page");
-        let imgsArray = ["oasissiwah.jpeg", "ageeba-Beach.jpg", "Matruoh_museum.jpg"]; // Ensure these exist in your images folder
+        let imgsArray = ["oasissiwah.jpeg", "Ageeba-Beach.jpg", "Matruoh_museum.jpg"]; // Ensure these exist in your images folder
 
         backgroundInterval = setInterval(() => {
             let randomNumber = Math.floor(Math.random() * imgsArray.length);
@@ -212,7 +212,4 @@ function handleActive(ev) {
 document.querySelector(".reset-options").onclick = function () {
     localStorage.clear();
     window.location.reload();
-
 };
-
-

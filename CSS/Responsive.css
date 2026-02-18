@@ -1,0 +1,164 @@
+/* start grid system */
+
+
+@media (max-width: 450px) {
+    .my-container {
+        max-width: 395px;
+    }
+}
+
+
+@media (min-width: 576px) {
+    .my-container {
+        max-width: 540px;
+    }
+}
+
+@media (min-width: 768px) {
+    .my-container {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .my-container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .my-container {
+        max-width: 1140px;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .header-area .links {
+        display: none;
+    }
+
+    .header-area .links.open {
+        background-color: #ffffff;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 64px;
+        width: 100%;
+        border-radius: 4px;
+        text-align: right;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        -ms-border-radius: 4px;
+        -o-border-radius: 4px;
+}
+
+    .header-area .links.open li {
+        display: block;
+        margin: 10px;
+    }
+
+
+    .header-area .links.open li a {
+        color: var(--main-color);
+        font-weight: bold;
+    }
+
+    .header-area .toggle-menu {
+        display: inline-block;
+    }
+
+}
+
+@media (max-width: 450px) /*start setting box*/{
+
+    .setting-box .toggle-settings{
+        position: absolute;
+        right: 0;
+        top: 110px;
+        background-color: transparent;
+        text-align: center;
+        right: -35px;
+        cursor: pointer;
+    }
+
+    .setting-box .toggle-settings .fa-gear {
+        padding: 8px 0;
+        width: 25px;
+        color: var(--main-color);
+        font-size: 20px; 
+    }
+    
+    .setting-box {
+        z-index: 99999;
+    }
+
+    .setting-box .option-box {
+        padding: 8px;
+        text-align: center;
+        background-color: #eee;
+        margin: 8px;
+    }
+
+    .setting-box .option-box h4 {
+        font-size: 14px;
+    }
+
+    .setting-box .reset-options {
+        width: 170px;
+        padding: 8px ;
+        margin: 8px auto;
+    }
+
+    .setting-box .option-box.balls {
+        display: none;
+    }
+
+    .nav-bullets {
+        visibility: hidden;
+    }
+}
+
+
+
+/*end  setting box*/
+
+
+/* landing page start */
+
+@media (max-width: 450px) {
+    
+    .matrouh-info .text .h1 {
+        font-size: 27px;
+    }
+
+    .matrouh-info .text .p-1{
+        font-size: 17px;
+    }
+
+    .matrouh-info .p-2 {
+        font-size: 20px;
+        line-height: 1.9;
+    }
+
+}
+
+/* landing page end */
+
+/* popup box start */
+@media (max-width: 450px) {
+    .popup-box img {
+        width: 335px;
+        height: 275px;
+    }
+}
+
+
+/* popup box end */
+/* End */
+
+
+
+/* learn space start */
+
+/* learn space end */
