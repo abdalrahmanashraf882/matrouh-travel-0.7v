@@ -6,13 +6,13 @@
 
 :root{
     --main-color:  rgb(13, 209, 235); 
-    --main-color-2: #ffffff
+    --main-color-2: #ffffff;
 }
 
 
 html{
     scroll-behavior: smooth;
-    font: size 16px;
+    font-size: 16px;
     direction: rtl;
     font-family: "Cairo",sans-serif;
 }
@@ -257,14 +257,6 @@ button{
     position: relative;
 }
 
-.header-area .links li a.disable{
-    color: #8f8f8f;
-}
-
-.header-area .links li a.disable:hover{
-    color: #8f8f8f;
-    cursor: default;
-}
 
 .landing-page .overlay{
     background-color: rgba(0, 0, 0, 0.45);
@@ -498,7 +490,7 @@ button{
     height: 150px;
     padding: 3px;
     background-color: #ccc;
-    border: 1 solid #ccc;
+    border: 1px solid #ccc;
     margin: 5px;
     cursor: pointer;
 }
@@ -564,9 +556,10 @@ button{
 
 /* report start */
 .report {
-    height: 600px;
+    min-height: 600px;
     background-image: url(../images/واحة_سيوة_2.jpeg);
     background-size: cover;
+    background-position: center;
     padding-top: 60px;
     padding-bottom: 60px;
     position: relative;
@@ -589,58 +582,151 @@ button{
 .report h2 {
     font-size: 30px;
     font-weight: bold;
-    font-family: 'Cairo',sans-serif;
+    font-family: "Cairo", sans-serif;
     color: var(--main-color);
-    margin: 0 0 60px;
+    margin: 0 0 40px;
     text-align: center;
 }
 
-.report form{
-    overflow: hidden;
+/* --- layout --- */
+.report form {
     max-width: 800px;
     margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 30px;
 }
 
-.report form .left{
-    float: left;
-    width: 49%;
+.report form .left  { grid-column: 1; }
+.report form .right { grid-column: 2; }
+
+/* --- field groups --- */
+.report .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
 }
 
-.report form .right{
-    float: right;
-    width: 49%;
+.report .form-group label {
+    font-family: "Cairo", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
 }
 
-.report form input:not([type="submit"]),
-.report form textarea{
+.report .form-group .required {
+    color: #e74c3c;
+    margin-right: 3px;
+}
+
+/* --- inputs & textarea --- */
+.report form input:not(.submit-btn),
+.report form textarea {
     display: block;
     width: 100%;
     padding: 10px;
-    margin-bottom: 15px;
-    border:solid 1px #ccc ;
+    border: solid 1px #ccc;
+    border-radius: 6px;
     background-color: rgba(233, 233, 233, 0.8);
+    font-family: "Cairo", sans-serif;
+    font-size: 14px;
+    color: #333;
+    transition: outline 0.2s, border-color 0.2s;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
 }
 
-.report form input:not([type="submit"]):focus,
-.report form textarea:focus{
+.report form input:not(.submit-btn):focus,
+.report form textarea:focus {
     outline: solid 2px var(--main-color);
+    border-color: var(--main-color);
 }
 
-.report form input{
-    height: 40px;
+/* حقل خاطئ */
+.report form input.error,
+.report form textarea.error {
+    border-color: #e74c3c;
+    outline: solid 2px #e74c3c;
 }
 
-.report form textarea{
-    height: 150px;
+.report form input { height: 40px; }
+.report form textarea { height: 178px; resize: vertical; }
+
+/* --- رسائل الخطأ: مخفية بالأساس وتظهر فقط بـ .show --- */
+.report .error-msg {
+    display: none;
+    font-size: 12px;
+    color: #e74c3c;
+    margin-top: 4px;
+    font-family: "Cairo", sans-serif;
 }
 
-.report form input[type="submit"]{
-    padding: 10px;
+.report .error-msg.show {
+    display: block;
+}
+
+/* --- زر الإرسال --- */
+.report .submit-btn {
+    display: block;
     width: 100%;
-    border-color: transparent;
+    padding: 12px;
+    margin-top: 8px;
     background-color: var(--main-color);
     color: #ffffff;
+    font-family: "Cairo", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
+    transition: background-color 0.25s, transform 0.15s;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.report .submit-btn:hover:not(:disabled) {
+    background-color: #0a9ab0;
+    transform: translateY(-2px);
+}
+
+.report .submit-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* --- رسالة حالة الإرسال --- */
+.report .status-msg {
+    display: none;
+    margin-top: 12px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-family: "Cairo", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+}
+
+.report .status-msg.success {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.report .status-msg.error-state {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
 }
 /* report end */
 
@@ -691,5 +777,3 @@ button{
     width: 300px;
 }
 /* about us end */
-
-
