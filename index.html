@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="icon" type="png" href="images/"> -->
+
+    <link rel="icon" type="png" href="images/">
+    
     <!-- لكتابة وصف للموقع في محرك البحث -->
-    <meta name="description" content="">
+    <meta name="description" content="اكتشف أروع الأماكن السياحية و الثقافية في محافظة مطروح,معالم تارخية و 
+    طبيعة خلابة,موقع(رحلة مطروح) سيكون دليلك الشامل في هذه الرحلة الشيقة,استعد لمغامرتك">
+    
     <!-- كلمات مفتاحية يستخدمها الناس في محرك البحث تخص الموقع -->
-    <meta name="keywords" content="">
+    <meta name="keywords" content="محافظة مطروح, سياحة مطررح, معالم مطروح السياحية, مطروح, شواطئ مطروح">
+    
     <!-- اسم المؤلف أو صاحب الموقع -->
-    <meta name="author" content="Eg-School-team">
+    <meta name="author" content="عبدالرحمن أشرف حكيم">
+
+    <!-- التحكم في سلوك الزواحف (Robots) -->
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="رحلة مطروح">
+    <meta property="og:description" content="اكتشف أروع الأماكن السياحية و الثقافية في محافظة مطروح,معالم تارخية و 
+    طبيعة خلابة,موقع(رحلة مطروح) سيكون دليلك الشامل في هذه الرحلة الشيقة,استعد لمغامرتك">
+    <meta property="og:image" content="/images/Rommel-Beach-View.jpg">
+    <meta property="og:url" content="/index.html">
+
     <title>Matrouh travel/رحلة مطروح</title>
     <link rel="stylesheet" href="CSS/animate.min.css">
     <link rel="stylesheet" href="CSS/aos.css">
@@ -79,6 +94,11 @@
     <div class="nav-tooltip">أشهر الأماكن</div>
   </div>
 
+  <div class="bullet" data-section=".report">
+    <i class="icon fas fa-circle-exclamation"></i>
+    <div class="nav-tooltip">الإبلاغ و الإقتراحات</div>
+  </div>
+
   <div class="bullet" data-section=".about-us">
     <i class="icon  fas fa-user"></i>
     <div class="nav-tooltip">من أكون</div>
@@ -94,7 +114,7 @@
       <div class="links-container">
         <ul class="links">
           <li><a href="#" data-section=".about-us"> من أكون</a></li>
-          <li><a href="#" data-section=".report" class="disable"> الإبلاغ و الإقتراحات</a></li>
+          <li><a href="#" data-section=".report"> الإبلاغ و الإقتراحات</a></li>
           <li><a href="#" data-section=".matrouh-info">نبذة عن المحافظة</a></li>
           <li><a href="#" data-section=".FPM">أشهر الأماكن</a></li>
           <li><a href="#" data-section=".landing-page" class="active">الصفحة الرئيسية</a></li>
@@ -172,19 +192,37 @@
   <div class="overlay"></div>
   <div class="my-container">
     <h2>قسم الإبلاغات و الإقتراحات</h2>
-      <form action="">
-        <div class="left">
-          <input type="text" placeholder="اسمك" name="username">
-          <input type="text" placeholder="رقم الهاتف" name="phone">
-          <input type="email" placeholder="الإميل" name="email">
-          <input type="text" placeholder="الموضوع" name="subject">
+    <form id="report-form" novalidate>
+      <div class="left">
+        <div class="form-group">
+          <label>الاسم <span class="required">*</span></label>
+          <input type="text" id="username" name="from_name" placeholder="اسمك">
+          <span class="error-msg" id="err-name">هذا الحقل مطلوب</span>
         </div>
-
-        <div class="right">
-          <textarea name="message" placeholder="اكتب هنا اقتراحك أو إبلاغك"></textarea>
-          <input type="submit" value="إرسال">
+        <div class="form-group">
+          <label>رقم الهاتف</label>
+          <input type="tel" id="phone" name="phone" placeholder="رقم الهاتف">
         </div>
-      </form>
+        <div class="form-group">
+          <label>الإيميل <span class="required">*</span></label>
+          <input type="email" id="email" name="from_email" placeholder="إيميلك">
+          <span class="error-msg" id="err-email">بريد إلكتروني غير صحيح</span>
+        </div>
+        <div class="form-group">
+          <label>الموضوع</label>
+          <input type="text" id="subject" name="subject" placeholder="الموضوع">
+        </div>
+      </div>
+      <div class="right">
+        <div class="form-group">
+          <label>الرسالة <span class="required">*</span></label>
+          <textarea id="message" name="message" placeholder="اكتب هنا..."></textarea>
+          <span class="error-msg" id="err-msg">هذا الحقل مطلوب</span>
+        </div>
+        <button type="submit" class="submit-btn">إرسال</button>
+        <div class="status-msg" id="form-status"></div>
+      </div>
+    </form>
   </div>
 </div>
 <!-- report end -->
@@ -205,10 +243,14 @@
   </div>
 </div>
 <!-- About us end -->
+
+<!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
   <script src="JS/aos.js"></script>
   <script src="JS/bootstrap.min.js"></script>
   <script src="JS/leaflet.js"></script> 
-  <Script src="JS/main.js"></Script>
   <script src="JS/jquery-1.12.4.min.js"></script>
+  <Script src="JS/main.js"></Script>
 </body>
 </html>
