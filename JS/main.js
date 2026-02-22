@@ -213,3 +213,82 @@ document.querySelector(".reset-options").onclick = function () {
     localStorage.clear();
     window.location.reload();
 };
+
+// --- 9. EMAILJS REPORT FORM ---
+
+// ✅ ضع بياناتك من موقع emailjs.com هنا
+const EMAILJS_PUBLIC_KEY  = "IaOuXW57q_6Mx4GdG";   // من Account → General
+const EMAILJS_SERVICE_ID  = "service_wn8a9rv";   // من Email Services
+const EMAILJS_TEMPLATE_ID = "template_n3hrqlt";  // من Email Templates
+
+// تهيئة EmailJS
+emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+const reportForm = document.getElementById('report-form');
+
+if (reportForm) {
+    reportForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // ✅ يمنع تحديث الصفحة
+
+    // --- التحقق من الحقول ---
+    let isValid = true;
+
+    const nameField  = document.getElementById('username');
+    const emailField = document.getElementById('email');
+    const msgField   = document.getElementById('message');
+    const statusBox  = document.getElementById('form-status');
+
+    // إزالة أخطاء قديمة
+    [nameField, emailField, msgField].forEach(f => {
+        f.classList.remove('error');
+    });
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+
+    // التحقق من الاسم
+    if (!nameField.value.trim()) {
+        nameField.classList.add('error');
+        document.getElementById('err-name').classList.add('show');
+        isValid = false;
+    }
+
+    // التحقق من الإيميل
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(emailField.value.trim())) {
+        emailField.classList.add('error');
+        document.getElementById('err-email').classList.add('show');
+        isValid = false;
+    }
+
+    // التحقق من الرسالة
+    if (!msgField.value.trim()) {
+        msgField.classList.add('error');
+        document.getElementById('err-msg').classList.add('show');
+        isValid = false;
+    }
+
+    if (!isValid) return; // إيقاف إذا فيه أخطاء
+
+    // --- الإرسال ---
+    const submitBtn = reportForm.querySelector('.submit-btn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = '⏳ جاري الإرسال...';
+    statusBox.className = 'status-msg';
+    statusBox.style.display = 'none';
+
+    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, reportForm)
+        .then(() => {
+        statusBox.textContent = '✅ تم إرسال رسالتك بنجاح! شكراً لك.';
+        statusBox.className   = 'status-msg success';
+        reportForm.reset(); // تفريغ الحقول
+        submitBtn.textContent = 'إرسال';
+        submitBtn.disabled    = false;
+        })
+        .catch((error) => {
+            console.error('EmailJS Error:', error);
+            statusBox.textContent = '❌ حدث خطأ. تأكد من الإنترنت وحاول مجدداً.';
+            statusBox.className   = 'status-msg error-state';
+            submitBtn.textContent = 'إرسال';
+            submitBtn.disabled    = false;
+        });
+    });
+}
