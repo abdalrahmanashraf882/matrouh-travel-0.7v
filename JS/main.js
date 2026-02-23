@@ -292,3 +292,51 @@ if (reportForm) {
         });
     });
 }
+
+//--10
+// تحريك Scroll بشكل أجمل
+$(".bullet").on("click", function() {
+    let target = $(this).data("section");
+    $("html, body").animate({
+        scrollTop: $(target).offset().top
+    }, 800); // 800 millisecond
+});
+
+
+// إضافة class عند الـ scroll
+$(window).on("scroll", function() {
+    if ($(this).scrollTop() > 100) {
+        $(".scroll-top-btn").fadeIn();
+    } else {
+        $(".scroll-top-btn").fadeOut();
+    }
+});
+
+// إنشاء الخريطة --11
+let map = L.map("map").setView([29.5, 26.5], 7);
+
+// إضافة طبقة الصور
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "© OpenStreetMap"
+}).addTo(map);
+
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+});
+
+// دبابيس الأماكن
+let places = [
+    { name: "مرسى مطروح", lat: 31.3525, lng: 27.2453 },
+    { name: "شاطئ كليوباترا", lat: 31.3611, lng: 27.2371 },
+    { name: "واحة سيوة", lat: 29.2031, lng: 25.5195 },
+    { name: "شاطئ عجيبة", lat: 31.3833, lng: 26.8333 }
+];
+
+places.forEach(place => {
+    L.marker([place.lat, place.lng])
+    .addTo(map)
+    .bindPopup(`<b>${place.name}</b>`);
+});
